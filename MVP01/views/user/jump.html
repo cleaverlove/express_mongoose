@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Document</title>
+		<meta charset="utf-8" />
+	</head>
+	<body>
+		<% if (success) { %>
+			<h3><%= success %></h3>
+			<p>用户: <%= user.username %>,<br />你好，3秒后跳转首页,如若不行，请手动跳转到- -<a href="/">链接</a>- -</p>
+		<% } else if (error && flags) {%>
+			<h3><%= error %></h3> 3秒后跳转到注册页面,如若不行，请手动跳转到- -<a href="/users/reg">链接</a>- -
+		<% } else { %>
+			<h3><%= error %></h3> 3秒后跳转到登录页面,如若不行，请手动跳转到- -<a href="/users/login">链接</a>- -
+		<% } %>
+
+	</body>
+
+
+</html>

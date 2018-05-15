@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<title>MVP01 Login</title>
+	<!-- [if lt IE 9] -->
+	<script src="/javascripts/js/html5shiv.min.js"></script>
+	<script src="/javascripts/js/respond.min.js"></script>
+	<!-- [endif] -->
+	<style>
+		button.dropdown-toggle {
+			margin-top: 18px;
+			border: 0;
+			background-color: white;
+		}
+		.navbar-brand > img {
+			width: 213px;
+			margin-top: -8px;
+		}
+		.Banner ul a {
+			font-size: 11px;
+			font-weight: bold;
+
+		}
+		.icon-bar {
+			background-color: #1dc9b1;
+			height: 4px;
+			width: 14px;
+			display: block;
+		}
+		.navNext {
+			display: none;
+		}
+		.dropdown-menu {
+			width: 1000px !important;
+			text-align: center !important;
+			margin-right: -28px;
+			line-height: 3.5em;
+			background-color: #e3f8f6;
+			top: 150%;
+		}
+		.dropdown-menu li {
+			display: inline-block;
+			margin: 0 8px;
+		}
+		.active a,
+		.Banner ul a:hover {
+			color: #1bbaa2 !important;
+			background-color: transparent !important; 
+
+		}
+		/* 灰色的背景区域  */
+		.navbar-default {
+			background-color: rgba(255,255,255,0.9);
+			border: 0;
+		}
+		li.loginer {
+			width:  242px;
+		}
+		li.loginer > a {
+			display: inline-block;
+		}
+		.container {
+			padding-bottom: 50px;
+		}
+		.form {
+			margin-top: 100px;
+		}
+		/* 表单部分开始  */
+		h1 {
+			margin-bottom: 25px;
+			font-weight: bold;
+			font-size: 40px;
+		}
+		/*form {
+			margin: 0 auto;
+			width: 770px;
+		}*/
+		label {
+			font-size: 11px;
+			letter-spacing: 0.125em;
+			color: #5e5e5e;
+			margin: 15px 3px;
+		}
+		form input {
+			padding: 20px 24px !important;
+			height: 64px !important;
+			/*width: 770px !important;*/
+			border: 2px solid #e2e2e2;
+		}
+		.form button {
+			background: #1bbaa2 !important;
+			font-weight: bold !important;
+			color: white !important;
+		}
+		.form button:hover {
+			background: #21e7c9 !important;
+			border: 1px solid  #21e7c9 !important;
+		} 
+		label  > a {
+			color: #1bbaa2;
+		}
+		.newuser,
+		form input {
+			font-size: 18px;
+			font-weight: bold;
+		}
+		.newuser a {
+			text-decoration: underline;
+			color: #000;
+		}
+	 	/*  footer start */
+	 	footer {
+			padding: 75px 0;
+			background: #161616;
+		}
+		footer .row ul li {
+			line-height: 2.5em;
+		}
+		footer .row a {
+			color: #c6c6c6;
+			font-size: 11px;
+		}
+		h4 {
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+		}
+		.container p {
+			margin: 40px 0;
+		}
+	</style>
+</head>
+<body>
+	<!-- 导航开始 -->
+	<nav class="navbar navbar-default Banner navbar-fixed-top" role="navigation">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/"><img src="/images/logo (1).png" alt=""></a>
+	    </div>
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" style="display: none;">
+	      <ul class="nav navbar-nav navbar-btn navbar-center" style="display: block; margin-left: 60px;">
+	        <li class="active"><a href="/">首页</a></li>
+	        <li><a href="#">我们是谁</a></li>
+	        <li><a href="#">解决方案</a></li>
+	        <li><a href="#">如何使用</a></li>
+	        <li><a href="/joinUs">加入我们</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-btn navbar-right navNext" style="display: none;">
+	        <li class="dropdown">
+	          <button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+	          		<span class="sr-only">Toggle navigation</span>
+	          		<span class="icon-bar"></span>
+	          		<span class="icon-bar" style="margin: 2px 0;"></span>
+	          		<span class="icon-bar"></span>
+	          </button>
+	          <ul class="dropdown-menu"  style="border: 0;overflow: hidden;">
+	          	<!-- <div class="align"> -->
+		            <li><a href="/">首页</a></li>
+		            <li><a href="#">我们是谁</a></li>
+		            <li><a href="#">解决方案</a></li>
+		            <li><a href="#">如何使用</a></li>
+		            <li><a href="/joinUs">加入我们</a></li>
+		            <li class="loginer">
+		            	<% if (user) { %>
+							<a href="/users">你好,<%= user.username %></a><a href="/logout">退出</a>
+		            	<%  } else { %>
+							<a href="/users/login" style="margin-left: 108px;">登录</a><a><%= success %></a>
+		            	<% } %>	
+		            </li>
+		        <!-- </div> -->
+	          </ul>
+	        </li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-btn navbar-right" style="display: block;">
+	        <li class="loginer">
+	        	<% if (user) { %>
+					<a href="/users">你好,<%= user.username %></a><a href="/logout">退出</a>
+            	<%  } else { %>
+					<a href="/users/login" style="margin-left: 108px">登录</a><a><%= success %></a>
+            	<% } %>		
+	        </li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container -->
+	</nav>		
+	<!-- 导航结束 -->
+	<!-- 表单部分开始 -->
+	<div class="container form">
+		<div class="col-sm-8 col-sm-push-2">
+			<h1 class="text-center">登录</h1>
+			<form role="form col-md-6" action="/users/login" method="post">
+			  <div class="form-group">
+			    <label for="exampleInputEmail1">邮箱</label>
+			    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="请输入邮箱" name="username">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputPassword1">密码 <a href="">忘记密码?</a></label>
+			    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="" name="password">
+			  </div>
+			  <p class="text-center">
+				 <button type="submit" class="btn btn-default text-center btn-lg" style="padding: 15px 35px;font-size: 16px; letter-spacing: 0.25em">登录</button>
+			  </p>
+			</form>
+			<p class="text-center newuser">新用户? &nbsp; <a href="/users/reg">点击此处新建用户</a></p>
+		</div>	
+		
+	</div>
+	<!-- 表单部分结束 -->
+	<!-- footer开始 -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>网站信息</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">我们是谁</a></li>
+						<li><a href="#">完成案例</a></li>
+						<li><a href="#">如何使用</a></li>
+						<li><a href="#">加入我们</a></li>
+						<li><a href="#">官方博客</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>服务信息</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">常见问题</a></li>
+						<li><a href="#">使用条款</a></li>
+						<li><a href="#">隐私协议</a></li>
+						<li><a href="#">开票说明</a></li>
+						<li><a href="#">合作伙伴</a></li>
+						<li><a href="#">优站精选</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>联系合作</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">邮箱:DM@MVP01.COM</a></li>
+						<li><a href="#">电话:010-84786612</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>公司地址</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">北京市  朝阳区</a></li>
+						<li><a href="#">东亚望京中心A座</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<img src="/images/logomark.png" alt="" style="width: 28%;">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+					<h5 style="color: white;">©2016 MVP01 京ICP备14038571号-3</h5>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+					<img src="/images/pic1.gif" alt="">
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- footer结束 -->
+	<script src="/javascripts/js/jquery.min.js"></script>
+	<script src="/javascripts/js/bootstrap.min.js"></script>
+	<script>
+		$(function() {
+		var flag = false;
+		viewResize();
+		$(window).resize(function() {
+			// stop(true,true);
+			viewResize();
+		});
+		function viewResize() {
+			// ☆ 第二步  每次一开始都解除事件，保证只有一个事件。
+			$('.dropdown-toggle').unbind('click',toggleNav);
+			if($(window).width() <= 983) {
+				$('a.create').addClass('btn-block');
+				$('.partner,.computer').addClass('text-center');
+				$('.navNext').css('display','block');
+				$('.navbar-collapse').children('ul:even').css('display','none');
+				$('.navbar-collapse.collapse').css('display','block');
+				// 222
+
+			} else {
+				$('a.create').removeClass('btn-block');
+				$('.partner,.computer').removeClass('text-center');
+				$('.navNext').css('display','none');
+				$('.navbar-collapse').children('ul:even').css('display','block');
+				$('.navbar-collapse.collapse').css('display','none');
+				//222
+
+			}
+			// }
+			if ($(window).width() < 1000) {
+				
+				$('.navbar-default').removeClass('navbar-fixed-top');
+				// ☆ 第一步  使用bind()方法绑定事件
+				$('.dropdown-toggle').bind('click',toggleNav);
+			} else {
+
+				$('.navbar-default').addClass('navbar-fixed-top');
+			}
+			if ( $(window).width() < 992 - 17  ) {
+				$('.dropdown-menu').css('margin-right','-130px');
+			} else {
+				$('.dropdown-menu').css('margin-right','-20px');
+			}
+		}	
+		function toggleNav(event) {
+				$('.space').stop(true);
+				$('.dropdown-menu').stop(true);
+				if (flag == false) {
+					$('.dropdown-menu').slideDown();
+					$('.space').animate({height:'59px'});
+					flag = true;
+				} else {
+					$('.dropdown-menu').slideUp();
+					$('.space').animate({height: '0px'});
+					flag = false;			
+				}
+				event.stopPropagation();
+		}
+	})
+
+	</script>
+</body>
+</html>

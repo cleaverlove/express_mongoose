@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+    .col-md-4 {
+        border: 1px solid #ddd;
+    }
+    
+    .col-md-8 {
+        border: 1px solid #ddd;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <!-- 
+						登录后，可以添加项目，
+						可删除自己添加的项目
+						(每个项目会记录登录者的名字，一样变可以删除)
+
+                     -->
+                    <div class="panel-heading">平台接收的项目</div>
+                    <% if (user) { %>
+                    		<p>你好，<%= user.username %></p>
+                            <p><a href="/projects/manage">项目管理</a></p>
+          					<!--  在添加的时候，可以默认项目的负责人为user.session.loginer.username  -->
+                            <p><a href="/projects/insert">项目添加</a></p>
+                            <p><a href="/">返回首页</a></p>
+                            <p><a href="/projects/logout1">退出1</a></p>
+                    <% } else { %> 
+                    			<h4>您还未登录</h4>	      
+                                <p><a href="/projects/login">请登录</a></p>
+                                <h4>如果您还未注册</h4>
+                                <p><a href="/projects/reg">请注册</a></p>
+                                <h4>你还可以</h4>
+                                <p><a href="/">返回首页</a></p>
+                                <h3><%=  success  %></h3>
+                    <% } %>         
+                    
+                </div>
+            </div>
+            <div class="col-md-10">
+                <table class="table">
+                    <tr>
+                        <th>项目负责人</th>
+                        <th>商品名</th>
+                        <th>封面</th>
+                        <th>更新时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                	<% projects.forEach(function(value, key) { %>
+						<tr>
+							<td><%= value.person %></td>
+							<td><%= value.project %></td>
+                            <% if (value.picture) { %>
+							 <td><img src="<%= value.picture %>" alt="" width="80" height="35"></td>
+                            <% }  else {%>
+                                <td><img src="" alt=""></td>
+                            <% } %>
+							<td><%= value.modify %></td>
+							<td><%= value.status %></td>
+							<td>
+								<% if (user != null) { %>
+									<% if (user.username === value.person) { %>
+                                        <% if (value.picture) { %>
+										<a href="/projects/addImg/<%= value._id %>" class="btn btn-primary">修改图片</a>
+                                        <% } else {%>
+                                        <a href="/projects/addImg/<%= value._id %>" class="btn btn-primary">添加图片</a>
+                                        <% } %>
+										<a href="/projects/update/<%=value._id%>" class="btn btn-warning">修改</a>
+										<a href="/projects/remove/<%=value._id%>" class="btn btn-danger">删除</a>
+									<% } else { %>
+										<a class="btn btn-primary" disabled="disabled">修改图片</a>
+										<a class="btn btn-warning" disabled="disabled">修改</a>
+										<a class="btn btn-danger" disabled="disabled">删除</a>
+									<% } %>
+								<% } else { %>
+									<a href="/projects/look" class="btn btn-info"">查看</a>
+									<!-- <a class="btn btn-warning" disabled="disabled">修改</a>
+									<a class="btn btn-danger" disabled="disabled">删除</a> -->
+								<% } %>
+							</td>
+						</tr>
+                	<% }) %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

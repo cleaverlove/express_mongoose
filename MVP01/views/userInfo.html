@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+    .col-md-4 {
+        border: 1px solid #ddd;
+    }
+    
+    /*.col-md-8 {
+        border: 1px solid #ddd;
+    }*/
+    .row {
+        margin-top: 24px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">个人信息</div>
+            		<p>你好，<%= user.username %></p>
+                    <p><a href="/projects/manage">项目管理</a></p>
+                    <p><a href="/projects/insert">项目添加</a></p>
+                    <p><a href="/">返回首页</a></p>
+                    <p><a href="/logout">退出1</a></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

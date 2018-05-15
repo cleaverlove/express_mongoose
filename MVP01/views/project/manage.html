@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+    .col-md-4 {
+        border: 1px solid #ddd;
+    }
+    
+    .col-md-8 {
+        border: 1px solid #ddd;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <!-- 
+						登录后，可以添加项目，
+						可删除自己添加的项目
+						(每个项目会记录登录者的名字，一样变可以删除)
+
+                     -->
+                    <div class="panel-heading">您项目管理</div>
+                    <!-- <% if (project) { %> -->
+            		<p>你好，<%= user.username %></p>
+                    <p><a href="/">返回首页</a></p>
+                    <p><a href="/projects">返回平台接收项目页</a></p>
+                    <p><a href="/projects/logout1">退出1</a></p>
+                    <!-- <% } %>  -->
+                    <% if (success) { %>
+                        <h3><%= success %></h3>
+                    <% } %>	
+                    <% if (error) { %>
+                        <h3><%= error %></h3>
+                    <% } %> 
+                </div>
+            </div>
+            <div class="col-md-10">
+                <table class="table">
+                    <tr>
+                        <th>商品名</th>
+                        <th>封面</th>
+                        <th>更新时间</th>
+                        <th>状态</th>
+                        <th>操作</th>
+                    </tr>
+                	<% project.forEach(function(value, key) { %>
+						<tr>
+							<td><%= value.project %></td>
+							 <% if (value.picture) { %>
+                             <td><img src="<%= value.picture %>" alt="" width="80" height="35"></td>
+                            <% }  else {%>
+                                <td><img src="" alt=""></td>
+                            <% } %>
+							<td><%= value.modify %></td>
+							<td><%= value.status %></td>
+							<td>
+								<a href="/projects/addImg/<%= value._id %>" class="btn btn-primary">添加图片</a>
+								<a href="/projects/update/<%=value._id%>" class="btn btn-warning">修改</a>
+								<a href="/projects/remove/<%=value._id%>" class="btn btn-danger">删除</a>
+							</td>
+						</tr>
+                	<% }) %>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

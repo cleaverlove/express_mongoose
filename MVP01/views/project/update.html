@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+    <style>
+    .col-md-4 {
+        border: 1px solid #ddd;
+    }
+    
+    /*.col-md-8 {
+        border: 1px solid #ddd;
+    }*/
+    .row {
+        margin-top: 24px;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <div class="panel panel-default">
+                    <!-- Default panel contents -->
+                    <!-- 
+						登录后，可以添加项目，
+						可删除自己添加的项目
+						(每个项目会记录登录者的名字，一样变可以删除)
+
+                     -->
+                    <div class="panel-heading">项目修改</div>
+            		<p>你好，<%= user.username %></p>
+                    <p><a href="/projects/logout1">退出1</a></p>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <form class="form-horizontal" role="form" action="/projects/update" method="post">
+                    <input type="hidden" class="form-control" id="inputEmail3" name="_id" value="<%=_id%>">
+                    <div class="form-group">
+                        <label for="inputEmail3" class="col-sm-2 control-label">项目负责人:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail3" name="person" value="<%=user.username%>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">商品名:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="project"  value="<%= projects.project %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">更新时间:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="modify"  value="<%=modfiies%>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputPassword3" class="col-sm-2 control-label">状态:</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPassword3" name="status"  value="<%= projects.status %>">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-10">
+                            <button type="submit" class="btn btn-default">提交</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

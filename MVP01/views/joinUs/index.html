@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="">
+	<title>MVP01 JoinUs</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<!-- if lt IE 9 -->
+	<script src="/javascripts/js/html5shiv.min.js"></script>
+	<script src="/javascripts/js/respond.min.js"></script>
+	<!-- endif -->
+	<style>
+	button.dropdown-toggle {
+			margin-top: 18px;
+			border: 0;
+			background-color: white;
+		}
+		.navbar-brand > img {
+			width: 213px;
+			margin-top: -8px;
+		}
+		.Banner ul a {
+			font-size: 11px;
+			font-weight: bold;
+
+		}
+		.icon-bar {
+			background-color: #1dc9b1;
+			height: 4px;
+			width: 14px;
+			display: block;
+		}
+		.navNext {
+			display: none;
+		}
+		.dropdown-menu {
+			width: 1000px !important;
+			text-align: center !important;
+			margin-right: -28px;
+			line-height: 3.5em;
+			background-color: #e3f8f6;
+			top: 150%;
+		}
+		.dropdown-menu li {
+			display: inline-block;
+			margin: 0 8px;
+		}
+		.active a,
+		.Banner ul a:hover {
+			color: #1bbaa2 !important;
+			background-color: transparent !important; 
+
+		}
+		/* 灰色的背景区域  */
+		.navbar-default {
+			background-color: rgba(255,255,255,0.9);
+			border: 0;
+		}
+		li.loginer {
+			width:  242px;
+		}
+		li.loginer > a {
+			display: inline-block;
+		}
+		/*  导航结束 */
+
+		.section1 {
+			margin-top: 100px;
+		}
+		.btn-primary {
+			background: #1bbaa2;
+			padding: 30px 20px;
+			display: inline-block;
+		}
+		.btn-primary:hover {
+			background-color: #21e7c9 !important;
+			border-color: #21e7c9;
+		}
+		h1 {
+			font-size: 40px;
+			font-weight: bold;
+		}
+		/*  板块一结束  */
+		.subnav {
+			margin-top: 60px;
+			background: #fbfbfb;
+			border-bottom: 1px solid #ebebeb;
+		}
+		.subnav ul li {
+			display: inline-block;
+		}
+		.subnav a {
+			color: #5e5e5e;
+			font-weight: bold;
+		}
+		.subnav a:hover {
+			background-color: #fbfbfb !important;
+			color: #1bbaa2;
+		}
+		/* 板块二结束 */
+		.section3,
+		.section4 {
+			padding: 90px 0;
+		}
+		h3 {
+			color: #1dc9b1;
+			display: inline-block;
+			padding-bottom: 6px;
+			border-bottom: 4px solid #1dc9b1;
+			margin-bottom: 30px;
+		}
+		h3 + p {
+			color: #757575;
+			font-size: 24px;
+		}
+		.warn {
+			color: #c9302c;
+		}
+		.advantage {
+			padding: 60px 0;
+		}
+		h4 {
+			color: #28282D;
+			font-weight: bold;
+		}
+		h4 + p {
+			line-height: 1.75em;
+			color: #5e5e5e;
+			margin-bottom: 40px;
+			font-size: 18px;
+		}
+		/* 板块三结束  */
+		.container-fluid {
+			background: #f7f7f7;
+		}
+		.padding-xs > p a {
+			color: #1bbaa2;
+		}
+		.section3 {
+			padding: 80px 0;
+			line-height: 100px;
+		}
+		.section3 h2 {
+			vertical-align: middle;
+			margin: 0 30px;
+		}
+		/* section3  结束  */
+		footer {
+			padding: 75px 0;
+			background: #161616;
+		}
+		footer .row ul li {
+			line-height: 2.5em;
+		}
+		footer .row a {
+			color: #c6c6c6;
+			font-size: 11px;
+		}
+		foot h4 {
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<!-- 导航开始 -->
+	<nav class="navbar navbar-default Banner navbar-fixed-top" role="navigation">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/"><img src="/images/logo (1).png" alt=""></a>
+	    </div>
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" style="display: none;">
+	      <ul class="nav navbar-nav navbar-btn navbar-center" style="display: block; margin-left: 60px;">
+	        <li><a href="/">首页</a></li>
+	        <li><a href="#">我们是谁</a></li>
+	        <li><a href="#">解决方案</a></li>
+	        <li><a href="#">如何使用</a></li>
+	        <li class="active"><a href="/joinUs">加入我们</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-btn navbar-right navNext" style="display: none;">
+	        <li class="dropdown">
+	          <button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+	          		<span class="sr-only">Toggle navigation</span>
+	          		<span class="icon-bar"></span>
+	          		<span class="icon-bar" style="margin: 2px 0;"></span>
+	          		<span class="icon-bar"></span>
+	          </button>
+	          <ul class="dropdown-menu"  style="border: 0;overflow: hidden;">
+	          	<!-- <div class="align"> -->
+		            <li><a href="/">首页</a></li>
+		            <li><a href="#">我们是谁</a></li>
+		            <li><a href="#">解决方案</a></li>
+		            <li><a href="#">如何使用</a></li>
+		            <li><a href="/joinUs">加入我们</a></li>
+		            <li class="loginer">
+		            	<% if (user) { %>
+							<a href="/users">你好,<%= user.username %></a><a href="/logout">退出</a>
+		            	<%  } else { %>
+							<a href="/users/login" style="margin-left: 108px;">登录</a><a><%= success %></a>
+		            	<% } %>	
+		            </li>
+		        <!-- </div> -->
+	          </ul>
+	        </li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-btn navbar-right" style="display: block;">
+	        <li class="loginer">
+	        	<% if (user) { %>
+					<a href="/users">你好,<%= user.username %></a><a href="/logout">退出</a>
+            	<%  } else { %>
+					<a href="/users/login" style="margin-left: 108px">登录</a><a><%= success %></a>
+            	<% } %>		
+	        </li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container -->
+	</nav>		
+	<!-- 导航结束 -->
+	<!-- 板块一开始 -->
+	<div class="container section1">
+		<div class="row">
+			<div class="col-xs-12 col-md-6">
+				<h1>利用闲置时间，赚取更多收入</h1>
+				<br />
+				<br />
+				<a href="/projects" class="bnt btn-primary btn-lg create" style="text-align: center">查看平台接受的项目</a>
+				<br>
+				<br>
+				<br>
+				<br>
+			</div>
+			<div class="col-md-6 hidden-xs hidden-sm text-right max-width-100">
+				<img src="/images/joinus.png" alt="" style="width: 80%;">
+			</div>
+		</div>
+	</div>
+	<!-- 板块一结束 -->
+	<!-- 板块二开始 -->
+	<div class="subnav text-center">
+		<ul class="nav">
+			<li><a href="#">成为开发者</a></li>
+			<li><a href="#">加入MVP01</a></li>
+		</ul>
+	</div>
+	<!-- 板块二结束 -->
+	<!-- 板块三开始 -->
+	<div class="container section3">
+		<div class="padding-xs text-center">
+			<h3 class="">成为开发者</h3>
+			<p>随时随地赚取收入，自由接触更多有趣的项目</p>
+			<p class="warn">*平台会绝对保密开发者个人信息</p>
+			<a href="#" class="bnt btn-primary btn-lg">开始自由的挣钱</a>
+		</div>
+		<div class="row advantage">
+			<div class="col-md-10">
+				<h4>随时随地的工作</h4>
+				<p>在MVP01你可以选择自己的工作时间，你可以利用周末或者晚上的时间参与自己感兴趣项目。 MVP01的开发者每周一般花费10-20小时，但你也可以选择全职在平台上贡献自己的技能。</p>
+				<h4>更自由的赚钱</h4>
+				<p>开发者在1～2个月的项目上赚取2万～6万的收入，随着你在平台贡献越多的技能，接到项目的机会就更多，有可能你能一个月赚取8万。</p>
+				<h4>与精英交流协作</h4>
+				<p>平台入驻100+位充满活力且具有创造性的工程师、产品经理和设计师，他们都来自领先互联网科技公司，高校和开源项目组织。通过利用由MVP01建立内部基础协作平台上相互学习和交流。别忘了，你的客户也大多是特定领域的精英呦。</p>
+			</div>
+		</div>
+	</div>
+	<!-- 板块三结束 -->
+	<!-- 板块四开始 -->
+	<div class="container-fluid">
+		<div class="container section4">
+			<div class="padding-xs text-center">
+				<h3>加入MVP01</h3>
+				<p>简历投递: <a href="#">jobs@mvp01.com</a></p>
+			</div>
+			<div class="row advantage">
+			<div class="col-md-10">
+				<h4>与客户一起改变世界</h4>
+				<p>在MVP01团队你可以接触各个行业有趣的项目，基于自己的经验帮助客户梳理产品需求，最大程度的参与到整个产品创造的过程中，并为客户提供高效的项目管理，保证产品高质量按时交付。</p>
+				<h4>塑造下一代工作方式</h4>
+				<p>我们创造更好的远程协同工具和系统，不断积累互联网产品的开发经验，建立有序、高效的工作流程。平台开发者利用自己自由的时间，贡献专业技能，随着平台不断成长在获取更多收入的同时，更塑造了下一代工作方式。</p>
+				<h4>体验友好的工作界面</h4>
+				<p>最大限度地减少专业人士的干扰是MVP01的理念，平台内部构建基于Git的代码统一托管和内部自主研发的项目管理系统的支持，并提供项目状态的实时报告自动更新和即时沟通的交流工具，一切都是为了聚焦于打造杰出产品。</p>
+			</div>
+		</div>
+		</div>
+	</div>
+	<!-- 板块四结束 -->
+	<!-- 板块五开始 -->
+	<div class="container section3 text-center">
+		<h2 style="display: inline-block;">成为开发者</h2>
+		<a href="#" class="btn btn-primary btn-lg create" style="display: inline-block;">现在申请</a>
+	</div>
+	<!-- 板块五结束 -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>网站信息</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">我们是谁</a></li>
+						<li><a href="#">完成案例</a></li>
+						<li><a href="#">如何使用</a></li>
+						<li><a href="#">加入我们</a></li>
+						<li><a href="#">官方博客</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>服务信息</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">常见问题</a></li>
+						<li><a href="#">使用条款</a></li>
+						<li><a href="#">隐私协议</a></li>
+						<li><a href="#">开票说明</a></li>
+						<li><a href="#">合作伙伴</a></li>
+						<li><a href="#">优站精选</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>联系合作</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">邮箱:DM@MVP01.COM</a></li>
+						<li><a href="#">电话:010-84786612</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>公司地址</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">北京市  朝阳区</a></li>
+						<li><a href="#">东亚望京中心A座</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<img src="/images/logomark.png" alt="" style="width: 28%;">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+					<h5 style="color: white;">©2016 MVP01 京ICP备14038571号-3</h5>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+					<img src="/images/pic1.gif" alt="">
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 板块三结束 -->
+	<script src="/javascripts/js/jquery.min.js"></script>
+	<script src="/javascripts/js/bootstrap.min.js"></script>
+	
+	<script>
+		$(function() {
+		var flag = false;
+		viewResize();
+		$(window).resize(function() {
+			// stop(true,true);
+			viewResize();
+		});
+		function viewResize() {
+			// ☆ 第二步  每次一开始都解除事件，保证只有一个事件。
+			$('.dropdown-toggle').unbind('click',toggleNav);
+			if($(window).width() <= 983) {
+				$('a.create').addClass('btn-block');
+				$('.partner,.computer').addClass('text-center');
+				$('.navNext').css('display','block');
+				$('.navbar-collapse').children('ul:even').css('display','none');
+				$('.navbar-collapse.collapse').css('display','block');
+				// 222
+
+			} else {
+				$('a.create').removeClass('btn-block');
+				$('.partner,.computer').removeClass('text-center');
+				$('.navNext').css('display','none');
+				$('.navbar-collapse').children('ul:even').css('display','block');
+				$('.navbar-collapse.collapse').css('display','none');
+				//222
+
+			}
+			// }
+			if ($(window).width() < 1000) {
+				
+				$('.navbar-default').removeClass('navbar-fixed-top');
+				// ☆ 第一步  使用bind()方法绑定事件
+				$('.dropdown-toggle').bind('click',toggleNav);
+			} else {
+
+				$('.navbar-default').addClass('navbar-fixed-top');
+			}
+			if ( $(window).width() < 992 - 17  ) {
+				$('.dropdown-menu').css('margin-right','-130px');
+			} else {
+				$('.dropdown-menu').css('margin-right','-20px');
+			}
+		}	
+		function toggleNav(event) {
+				$('.space').stop(true);
+				$('.dropdown-menu').stop(true);
+				if (flag == false) {
+					$('.dropdown-menu').slideDown();
+					$('.space').animate({height:'59px'});
+					flag = true;
+				} else {
+					$('.dropdown-menu').slideUp();
+					$('.space').animate({height: '0px'});
+					flag = false;			
+				}
+				event.stopPropagation();
+		}
+	})
+	</script>
+</body>
+</html>
