@@ -22,7 +22,8 @@ app.set('view engine', 'html');
 app.use(multer({ dest: 'public' }).array('image'));
 
 // 3 引入所需模块  session
- var session = require('express-session');
+app.use(cookieParser());
+var session = require('express-session');
 var MongoStore = require('connect-mongo')(session);
 
 app.use(session({
@@ -43,7 +44,6 @@ var flash = require('connect-flash');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
