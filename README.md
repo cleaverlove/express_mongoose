@@ -1,8 +1,8 @@
 ## express_mongoose
-
 express, mongoose, bootstrap 仿MVP01网站
 
-##Dependicies
+
+##dependencies
 
   * cookie-parser 提供对cookie的支持   注意:cookie-session只适用于“基于cookie的会话”
         ```js
@@ -14,6 +14,8 @@ express, mongoose, bootstrap 仿MVP01网站
         ```
   * express-session 提供会话ID(存在cookie里)的会话支持,默认存在内存里，这种情况适用于生产环境，并且可以配置为使用数据库存储。必须在之前使用中间件cookie-parser
         既然内存存储会话数据不适用生产环境，可以使用MongoDB来存储会话非常容易
+
+        
         ```js
             var session = require('express-session');
             var MongoStore = require('connect-mongo')(session);
@@ -23,7 +25,8 @@ express, mongoose, bootstrap 仿MVP01网站
                 resave: false,
                 saveUninitialized: true
             }));
-        ```     
+        ```
+
         另一种流行又易用的会话持久化方案是用Redis,可参考[nodeclub](https://github.com/cnodejs/nodeclub/blob/master/app.js) 
 
         注意一下: 对于会话而言，它全都是在请求对象上操作的。(响应对象没有session属性),要删除会话，可以使用delete操作符: delete req.session.colorScheme
