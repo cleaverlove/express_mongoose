@@ -9,13 +9,16 @@ var index = require('./routes/index');
 var users = require('./routes/users');
 var joinUs = require('./routes/joinUs');
 var projects = require('./routes/project');
+var config = require('./config');
 
 var app = express();
 
 // view engine setup  1 引入模板引擎
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.html',require('ejs').__express);
+app.engine('html',require('ejs-mate'));
 app.set('view engine', 'html');
+//若使用下面语句，则当渲染每个html文件时，都会layout.html模版
+// app.locals._layoutFile = 'layout.html'; 适用于每个文件都需要头尾时
 
 // 2 引入文件上传模块 multer
  var multer = require('multer');
@@ -30,7 +33,7 @@ app.use(session({
 	name:"MVP01",	// 设置cookie中保存session_id的字段名称
     secret: 'MVP01',	// 通过设置 secret 来计算 hash 值并放在 cookie 中，使产生的 signedCookie 防篡改
     cookie: { maxAge: 1000 * 60 * 60 * 24 * 30, secure: false }, //过期时间，过期后 cookie 中的 session id 自动删除
-    store: new MongoStore({ url:"mongodb://localhost:27017/MVP01" }),
+    store: new MongoStore({ url:config.database }),
     resave: false,
 	saveUninitialized: true
 }));

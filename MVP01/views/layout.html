@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width,initial-scale=1 user-scalable=no" />
+	<title>MVP01</title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<!-- [if lt IE 9] -->
+	<script src="/javascripts/js/html5shiv.min.js"></script>
+	<script src="/javascripts/js/respond.min.js"></script>
+	<!-- [endif] -->
+	<style>
+		body {
+			overflow-x: hidden;
+		}
+		button.dropdown-toggle {
+			margin-top: 18px;
+			border: 0;
+			background-color: white;
+		}
+		.navbar-brand > img {
+			width: 213px;
+			margin-top: -8px;
+		}
+		.Banner ul a {
+			font-size: 11px;
+			font-weight: bold;
+
+		}
+		.icon-bar {
+			background-color: #1dc9b1;
+			height: 4px;
+			width: 14px;
+			display: block;
+		}
+		.navNext {
+			display: none;
+		}
+		.dropdown-menu {
+			width: 1000px !important;
+			text-align: center !important;
+			margin-right: -28px;
+			line-height: 3.5em;
+			background-color: #e3f8f6;
+			top: 150%;
+		}
+		.dropdown-menu li {
+			display: inline-block;
+			margin: 0 8px;
+		}
+		.active a,
+		.Banner ul a:hover {
+			color: #1bbaa2 !important;
+			background-color: transparent !important; 
+
+		}
+		/* 灰色的背景区域  */
+		.navbar-default {
+			background-color: rgba(255,255,255,0.9);
+			border: 0;
+		}
+		li.loginer {
+			width:  242px;
+		}
+		li.loginer > a {
+			display: inline-block;
+		}
+		/*  导航结束 */
+		.section1 {
+			margin-top: 100px;
+		}
+		.space {
+			height: 0px;
+		}
+		h2 {
+			margin: 0.625em 0;
+			font-size: 40px;
+			font-weight: bold;
+		}
+		.section1 p,
+		.section2 p {
+			margin: 1.5em 0 2em;
+			font-size: 20px;
+			color: #5e5e5e;
+			line-height: 1.75em;
+		}
+		.part {
+			padding-bottom: 100px;
+		}
+		.btn-primary {
+			background: #1bbaa2;
+			padding: 30px 20px;
+		}
+		.btn-primary:hover {
+			background-color: #21e7c9 !important;
+			border-color: #21e7c9;
+		}
+		.carousel-indicators {
+			bottom: -50px;
+		}
+		.carousel-indicators li,
+		.carousel-indicators li.active {
+			width: 18px;
+			height: 18px;
+		}
+		.carousel-indicators li {
+			border: 1px solid #c6c6c6;
+		}
+		.carousel-indicators li.active {
+			border: 1px solid #1dc9b1;
+			background: #1dc9b1;
+		}
+		.arrow {
+			margin: 25px 0 35px;
+			font-size: 35px;
+			color: #1dc9b1;
+			font-weight: 200;
+			height: 85px;
+			text-align: center;
+			line-height: 85px;
+		}
+		/* section1 结束  */
+		.section2 {
+			background: #f7f7f7;
+			padding-top: 90px;
+		}
+		.section2 .row {
+			padding: 75px 0;
+		}
+		h5 {
+			display: inline-block;
+			color: #282828;
+			font-weight: bold;
+			padding-bottom: 5px;
+			border-bottom: 3px solid #282828;
+		}
+		.more {
+			display: block;
+			font-size: 18px;
+			color: #1bbaa2;
+			font-weight: bold;
+			margin-top: -20px;
+		}
+		.more:hover {
+			color: #1bbaa2;
+		}
+		.partner {
+			margin-top: 40px; 
+		}
+		.section2 .row:last-child {
+			padding-bottom: 0;
+		}
+		/* section2 结束 */
+		.section3 {
+			padding: 80px 0;
+			line-height: 100px;
+		}
+		.section3 h2  {
+			vertical-align: middle;
+			margin: 0 30px;
+		}
+		/* section3  结束  */
+		footer {
+			padding: 75px 0;
+			background: #161616;
+		}
+		footer .row ul li {
+			line-height: 2.5em;
+		}
+		footer .row a {
+			color: #c6c6c6;
+			font-size: 11px;
+		}
+		h4 {
+			color: white;
+			font-size: 15px;
+			font-weight: bold;
+		}
+		/*  media */
+		@media screen (max-width: 994px) {
+			.navbar-collapse .dropdown-menu {
+				margin-right: -128px !important;
+			}
+		}
+	</style>
+</head>
+<body>
+	<!-- 导航开始 -->
+	<nav class="navbar navbar-default Banner navbar-fixed-top" role="navigation">
+	  <div class="container">
+	    <!-- Brand and toggle get grouped for better mobile display -->
+	    <div class="navbar-header">
+	      <a class="navbar-brand" href="/"><img src="/images/logo (1).png" alt=""></a>
+	    </div>
+	    <!-- Collect the nav links, forms, and other content for toggling -->
+	    <div class="collapse navbar-collapse" style="display: none;">
+	      <ul class="nav navbar-nav navbar-btn navbar-center" style="display: block; margin-left: 60px;">
+	        <li class="active"><a href="/">首页</a></li>
+	        <li><a href="#">我们是谁</a></li>
+	        <li><a href="#">解决方案</a></li>
+	        <li><a href="#">如何使用</a></li>
+	        <li><a href="/joinUs">加入我们</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-btn navbar-right navNext" style="display: none;">
+	        <li class="dropdown">
+	          <button href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+	          		<span class="sr-only">Toggle navigation</span>
+	          		<span class="icon-bar"></span>
+	          		<span class="icon-bar" style="margin: 2px 0;"></span>
+	          		<span class="icon-bar"></span>
+	          </button>
+	          <ul class="dropdown-menu"  style="border: 0;overflow: hidden;">
+	          	<!-- <div class="align"> -->
+		            <li><a href="/">首页</a></li>
+		            <li><a href="#">我们是谁</a></li>
+		            <li><a href="#">解决方案</a></li>
+		            <li><a href="#">如何使用</a></li>
+		            <li><a href="/joinUs">加入我们</a></li>
+		            <li class="loginer">
+		            	<% if (user) { %>
+							<a href="/userInfo/<%= user.username %>">你好,<%= user.username %></a><a href="/logout">退出</a>
+		            	<%  } else { %>
+							<a href="/users/login" style="margin-left: 108px;">登录</a><a><%= success %></a>
+		            	<% } %>	
+		            </li>
+		        <!-- </div> -->
+	          </ul>
+	        </li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-btn navbar-right" style="display: block;">
+	        <li class="loginer">
+	        	<% if (user) { %>
+					<a href="/userInfo/<%= user.username %>">你好,<%= user.username %></a><a href="/logout">退出</a>
+            	<%  } else { %>
+					<a href="/users/login" style="margin-left: 108px">登录</a><a><%= success %></a>
+            	<% } %>		
+	        </li>
+	      </ul>
+	    </div><!-- /.navbar-collapse -->
+	  </div><!-- /.container -->
+	</nav>		
+	<!-- 导航结束 -->
+  <%- body -%>
+	<!-- 板块三开始 -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>网站信息</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">我们是谁</a></li>
+						<li><a href="#">完成案例</a></li>
+						<li><a href="#">如何使用</a></li>
+						<li><a href="#">加入我们</a></li>
+						<li><a href="#">官方博客</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>服务信息</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">常见问题</a></li>
+						<li><a href="#">使用条款</a></li>
+						<li><a href="#">隐私协议</a></li>
+						<li><a href="#">开票说明</a></li>
+						<li><a href="#">合作伙伴</a></li>
+						<li><a href="#">优站精选</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>联系合作</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">邮箱:DM@MVP01.COM</a></li>
+						<li><a href="#">电话:010-84786612</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 col-sm-6 col-xs-6">
+					<h4>公司地址</h4>
+					<ul class="list-unstyled">
+						<li><a href="#">北京市  朝阳区</a></li>
+						<li><a href="#">东亚望京中心A座</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4">
+					<img src="/images/logomark.png" alt="" style="width: 28%;">
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-center">
+					<h5 style="color: white;">©2016 MVP01 京ICP备14038571号-3</h5>
+				</div>
+				<div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 text-right">
+					<img src="/images/pic1.gif" alt="">
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- 板块三结束 -->
+	<script>
+	</script>
+	<script src="/javascripts/js/jquery.min.js"></script>
+	<script src="/javascripts/js/bootstrap.min.js"></script>
+</body>
+<script>
+	$(function() {
+		var flag = false;
+		viewResize();
+		$(window).resize(function() {
+			// stop(true,true);
+			viewResize();
+		});
+		function viewResize() {
+			$('.dropdown-toggle').unbind('click',toggleNav);
+			if($(window).width() <= 983) {
+				$('a.create').addClass('btn-block');
+				$('.partner,.computer').addClass('text-center');
+				$('.navNext').css('display','block');
+				$('.navbar-collapse').children('ul:even').css('display','none');
+				$('.navbar-collapse.collapse').css('display','block');
+
+			} else {
+				$('a.create').removeClass('btn-block');
+				$('.partner,.computer').removeClass('text-center');
+				$('.navNext').css('display','none');
+				$('.navbar-collapse').children('ul:even').css('display','block');
+				$('.navbar-collapse.collapse').css('display','none');
+
+			}
+			// }
+			if ($(window).width() < 1000) {
+				
+				$('.navbar-default').removeClass('navbar-fixed-top');
+				$('.dropdown-toggle').bind('click',toggleNav);
+			} else {
+
+				$('.navbar-default').addClass('navbar-fixed-top');
+			}
+			if ( $(window).width() < 992 - 17  ) {
+				$('.dropdown-menu').css('margin-right','-130px');
+			} else {
+				$('.dropdown-menu').css('margin-right','-20px');
+			}
+		}	
+		function toggleNav(event) {
+				$('.space').stop(true);
+				$('.dropdown-menu').stop(true);
+				if (flag == false) {
+					$('.dropdown-menu').slideDown();
+					$('.space').animate({height:'59px'});
+					flag = true;
+					console.log(flag);
+					
+				} else {
+					$('.dropdown-menu').slideUp();
+					$('.space').animate({height: '0px'});
+					flag = false;
+					console.log(flag);
+					
+				}
+				event.stopPropagation();
+		}
+	})
+</script>
+</html>
