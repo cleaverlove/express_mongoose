@@ -15,10 +15,12 @@ express, mongoose, bootstrap 仿MVP01网站
 
         ```js
             app.use(require('cookie-parser')('cookie秘钥'))
-            //相应对象设置cookie
-            res.cookie('monster', 'nom');
-            //获取客户端发送的cookie
-            req.cookies.momster;
+            //相应对象设置cookie或者签名cookie
+            res.cookie('monster', 'nom'); 
+            res.cookie('signed_monster', 'nom', {signed: true});
+            //获取客户端发送的cookie,只需请求访问对象的cookie或signedCookie属性
+            req.cookies.monster;
+            req.signedCookies.monster;
         ```
   * express-session 提供会话ID(存在cookie里)的会话支持,默认存在内存里，这种情况适用于生产环境，并且可以配置为使用数据库存储。必须在之前使用中间件cookie-parser
         既然内存存储会话数据不适用生产环境，可以使用MongoDB来存储会话非常容易
